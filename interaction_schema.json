@@ -1,0 +1,232 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "commander simple",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "how are you",
+                        "say hi world",
+                        "say hi",
+                        "hi",
+                        "say hello world",
+                        "say hello"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ShowDashboardIntent",
+                    "slots": [
+                        {
+                            "name": "dashboardName",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{dashboardName}",
+                                "Show {dashboardName}",
+                                "{dashboardName} please"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "open dashboard {dashboardName}",
+                        "show dashboard {dashboardName}"
+                    ]
+                },
+                {
+                    "name": "LoginToSalesforceIntent",
+                    "slots": [
+                        {
+                            "name": "orgType",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "login",
+                        "connect to Salesforce",
+                        "login to Salesforce",
+                        "login to {orgType}"
+                    ]
+                },
+                {
+                    "name": "SubscribeIntent",
+                    "slots": [
+                        {
+                            "name": "searchExpr",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "Subscribe to {searchExpr}",
+                                "The channel is {searchExpr}",
+                                "{searchExpr}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "channel {searchExpr}",
+                        "subscribe {searchExpr}",
+                        "connect channel {searchExpr}",
+                        "join channel {searchExpr}",
+                        "subscribe channel {searchExpr}"
+                    ]
+                },
+                {
+                    "name": "DashboardPageIntent",
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{direction}",
+                                "view {direction}",
+                                "{direction} slide",
+                                "{direction} page"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "View {direction} slide",
+                        "View {direction} page",
+                        "Open {direction} slide",
+                        "Open {direction} page",
+                        "Go to {direction} slide",
+                        "Go to {direction} page"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ShowDashboardIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "dashboardName",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1347725798461.322733015343"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LoginToSalesforceIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "orgType",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "SubscribeIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "searchExpr",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1535477565850.450609907636"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DashboardPageIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.537957449951.1236784822225"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1347725798461.322733015343",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which one?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which dashboard?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which dashboard would you like to show?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is the dashboard name?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1535477565850.450609907636",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the name of the channel?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What channel do you want to subscribe to?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which channel?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.537957449951.1236784822225",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please say first, last, next, or previous."
+                    }
+                ]
+            }
+        ]
+    }
+}
